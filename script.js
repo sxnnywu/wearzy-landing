@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
 });
 
+// HANDLING WAITLIST SUBMISSION
+
 // Initialize Supabase client
 const SUPABASE_URL = 'https://ijjjhvzuibnichxdhiwy.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlqampodnp1aWJuaWNoeGRoaXd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0Mjg1MzUsImV4cCI6MjA2NzAwNDUzNX0.f9BjGabBzVK1K1qTRvccFZics1nJtkkRMZo-DVz3QEo';
