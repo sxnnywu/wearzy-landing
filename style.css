@@ -70,6 +70,7 @@ header {
     box-shadow: 0 2px 40px rgba(100, 157, 173, 0.08);
     position: fixed;
     width: 100%;
+    padding: 1rem 0;
     top: 0;
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,34 +91,16 @@ nav {
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #649dad;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 48px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 2;
+    cursor: pointer;
+    margin-left: -100px;
 }
 
 .logo:hover {
-    color: #4d8291;
     transform: scale(1.05);
-}
-
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #649dad, #4d8291);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
-
-.logo:hover::after {
-    width: 100%;
 }
 
 /* HERO SECTION */
