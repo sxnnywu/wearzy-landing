@@ -1,3 +1,338 @@
-main > h1{
-    
+/* EVERYTHING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #4d8291;
+    background-color: #ffffff;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(100, 157, 173, 0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #649dad;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.logo:hover {
+    color: #4d8291;
+}
+
+/* HERO SECTION s*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg,
+            rgba(222, 241, 247, 0.9) 0%,
+            rgba(89, 154, 171, 0.9) 60%),
+        radial-gradient(circle at top left,
+            rgba(178, 196, 201, 0.3),
+            transparent 70%),
+        radial-gradient(circle at bottom right,
+            rgba(198, 243, 255, 0.3),
+            transparent 70%);
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 0 4rem;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideInUp 1s ease-out 0.2s both;
+}
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+.hero .value-prop {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+.hero .description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 3rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+/* EMAIL SIGNUP */
+.email-signup {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 550px;
+    margin: 0 auto;
+    animation: slideInUp 1s ease-out 0.6s both;
+    box-shadow: 0 30px 60px rgba(100, 157, 173, 0.15);
+}
+.email-signup h2 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+.email-signup .signup-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Form Styles */
+.form-container {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+.form-group {
+    flex: 1;
+    position: relative;
+}
+.form-input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-weight: 500;
+}
+.form-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+/* CTA Button */
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #649dad 0%, #4d8291 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: nowrap;
+    box-shadow: 0 10px 25px rgba(100, 157, 173, 0.3);
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(100, 157, 173, 0.4);
+}
+.cta-button:active {
+    transform: translateY(-1px);
+}
+
+/* Success Message */
+.success-message {
+    display: none;
+    background: rgba(133, 178, 191, 0.2);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Social Proof */
+.social-proof {
+    text-align: center;
+    margin-top: 3rem;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+.social-proof p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background-color: #4d8291;
+    color: #ffffff;
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 0;
+}
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ANIMATIONS */
+
+/* Hero section and social proof */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Badge and form */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero .value-prop {
+        font-size: 1.2rem;
+    }
+
+    .email-signup {
+        margin: 0 20px;
+        padding: 2rem;
+    }
+
+    .form-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .value-prop {
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding: 6rem 0 2rem;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

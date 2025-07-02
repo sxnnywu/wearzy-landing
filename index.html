@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- HEAD -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wearzy - Coming Soon</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<!-- HEAD -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearzy - Clothing Rentals for Students</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
 
-    <!-- BODY -->
-    <body>
+<!-- BODY -->
+<body>
 
-        <!-- HEADER -->
-        <header>
-            <img src="logo.png" alt="Wearzy Logo" class="logo">
-        </header>
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Wearzy</a>
+        </nav>
+    </header>
 
-        <!-- MAIN -->
-        <main>
-            <h1>Coming Soon</h1>
-            <p>Clothing rentals for students. Affordable. Sustainable. Stylish.</p>
-            <form> 
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Join the Waitlist</button>
-            </form>
-        </main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
 
-        <!-- FOOTER -->
-        <footer>
-            <p>© 2025 Wearzy. All rights reserved.</p>
-        </footer>
+            <!-- Badge -->
+            <div class="hero-badge">🎓 Made for Students</div>
 
-        <script src="script.js" defer></script>
-    </body>
+            <!-- Main Headline -->
+            <h1>Rent. Swap. Repeat.</h1>
 
+            <!-- Value Proposition -->
+            <p class="value-prop">Your campus wardrobe, reimagined</p>
+            <p class="description">Connect with students on your campus to rent and swap clothes seamlessly. Look amazing without breaking the bank or filling your closet.</p>
+            
+            <!-- Email Signup Form -->
+            <div class="email-signup">
+                <h2>Join the Waitlist</h2>
+                <p class="signup-subtitle">Be first to access when we launch on your campus</p>
+                
+                <form id="waitlistForm">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-input" placeholder="Enter your .edu email" required>
+                        </div>
+                        <button type="submit" class="cta-button" id="submitBtn">Get Early Access</button>
+                    </div>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    🎉 You're in! We'll notify you when Wearzy launches at your school.
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="social-proof">
+                <p>Join 500+ students already on the waitlist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Wearzy. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
 </html>
