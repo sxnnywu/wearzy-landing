@@ -2,66 +2,83 @@
 <html lang="en">
 
 <!-- HEAD -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wearzy - Clothing Rentals for Students</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <!-- BODY -->
+
 <body>
+    <!-- FLOATING ELEMENTS -->
+    <div class="floating-element"
+        style="width: 60px; height: 60px; background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); border-radius: 50%;">
+    </div>
+    <div class="floating-element"
+        style="width: 40px; height: 40px; background: linear-gradient(45deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border-radius: 50%;">
+    </div>
+    <div class="floating-element"
+        style="width: 80px; height: 80px; background: linear-gradient(45deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-radius: 50%;">
+    </div>
 
     <!-- HEADER -->
-    <header>
+    <header id="header">
         <nav class="container">
-            <a href="#" class="logo">Wearzy</a>
+            <a href="#" class="logo glow-effect">Wearzy</a>
         </nav>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-
+    <section class="hero parallax-container" id="hero">
+        
+        <div class="coming-soon">Coming Fall 2025</div>
+        
+        <div class="hero-content" id="heroContent">
             <!-- Badge -->
-            <div class="hero-badge">🎓 Made for Students</div>
+            <div class="hero-badge interactive-element">🎓 Made for Students</div>
 
             <!-- Main Headline -->
-            <h1>Rent. Swap. Repeat.</h1>
+            <h1 class="scroll-animate">Rent. Swap. Repeat.</h1>
 
             <!-- Value Proposition -->
-            <p class="value-prop">Your campus wardrobe, reimagined</p>
-            <p class="description">Connect with students on your campus to rent and swap clothes seamlessly. Look amazing without breaking the bank or filling your closet.</p>
-            
+            <p class="value-prop scroll-animate">Your campus wardrobe, reimagined</p>
+            <p class="description scroll-animate">Connect with students on your campus to rent and swap clothes
+                seamlessly. Look amazing without breaking the bank or filling your closet.</p>
+
             <!-- Email Signup Form -->
-            <div class="email-signup">
+            <div class="email-signup scroll-animate">
                 <h2>Join the Waitlist</h2>
                 <p class="signup-subtitle">Be first to access when we launch on your campus</p>
-                
+
                 <form id="waitlistForm">
                     <div class="form-container">
                         <div class="form-group">
-                            <input type="email" id="email" class="form-input" placeholder="Enter your .edu email" required>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your .edu email"
+                                required>
                         </div>
-                        <button type="submit" class="cta-button" id="submitBtn">Get Early Access</button>
+                        <button type="submit" class="cta-button glow-effect" id="submitBtn">Get Early Access</button>
                     </div>
                 </form>
-                
+
                 <div class="success-message" id="successMessage">
                     🎉 You're in! We'll notify you when Wearzy launches at your school.
                 </div>
             </div>
 
             <!-- Social Proof -->
-            <div class="social-proof">
+            <div class="social-proof scroll-animate">
                 <p>Join 500+ students already on the waitlist</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="scroll-animate">
         <div class="container">
             <p>&copy; 2025 Wearzy. All rights reserved.</p>
         </div>
@@ -69,4 +86,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
