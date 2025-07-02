@@ -68,12 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
 });
 
-// HANDLING WAITLIST SUBMISSION
+// NUMBER OF WAITLIST ENTRIES
 
 // Initialize Supabase client
 const SUPABASE_URL = 'https://ijjjhvzuibnichxdhiwy.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlqampodnp1aWJuaWNoeGRoaXd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0Mjg1MzUsImV4cCI6MjA2NzAwNDUzNX0.f9BjGabBzVK1K1qTRvccFZics1nJtkkRMZo-DVz3QEo';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Fetch number of waitlist entries from Supabase
+async function fetchWaitlistCount() {
+  const { count, error } = await supabaseClient
+    .from('waitlist') // <- match your table name exactly
+    .select('*', { count: 'exact', head: true });
+
+  if (error) {
+    console.error('Error fetching waitlist count:', error);
+    return;
+  }
+  const countElement = document.getElementById('waitlistCount');
+  if (countElement) {
+    countElement.textContent = `Join ${count} students already on the waitlist`;
+  }
+}
+
+fetchWaitlistCount(); // call it when the page loads
+
+// HANDLING WAITLIST SUBMISSION
 
 // Reference to elements
 const submitBtn = document.getElementById('submitBtn');
