@@ -1,90 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- HEAD -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wearzy - Clothing Rentals for Students</title>
+    <title>Campus Closet - Rent. Swap. Repeat.</title>
+    <meta name="description" content="Connect with students on your campus to rent and swap clothes seamlessly. Coming Fall 2025.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
 </head>
-
-<!-- BODY -->
-
 <body>
-    <!-- FLOATING ELEMENTS -->
-    <div class="floating-element"
-        style="width: 60px; height: 60px; background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); border-radius: 50%;">
-    </div>
-    <div class="floating-element"
-        style="width: 40px; height: 40px; background: linear-gradient(45deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border-radius: 50%;">
-    </div>
-    <div class="floating-element"
-        style="width: 80px; height: 80px; background: linear-gradient(45deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-radius: 50%;">
-    </div>
+    <div class="container">
+        <!-- Animated background -->
+        <div class="background-wrapper">
+            <div class="animated-gradient"></div>
+            <div class="floating-orb"></div>
+            <div class="floating-orb"></div>
+            <div class="floating-orb"></div>
+            <div class="floating-orb"></div>
+        </div>
 
-    <!-- HEADER -->
-    <header id="header">
-        <nav class="container">
-            <img src="assets/wearzy-logo.png" alt="Wearzy Logo" class="logo glow-effect">
-        </nav>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero parallax-container" id="hero">
-        
-        <div class="coming-soon">Coming Fall 2025</div>
-        
-        <div class="hero-content" id="heroContent">
-            <!-- Badge -->
-            <div class="hero-badge interactive-element">🎓 Made for Students</div>
-
-            <!-- Main Headline -->
-            <h1 class="scroll-animate">Rent. Swap. Repeat.</h1>
-
-            <!-- Value Proposition -->
-            <p class="value-prop scroll-animate">Your campus wardrobe, reimagined</p>
-            <p class="description scroll-animate">Connect with students on your campus to rent and swap clothes
-                seamlessly. Look amazing without breaking the bank or filling your closet.</p>
-
-            <!-- Email Signup Form -->
-            <div class="email-signup scroll-animate">
-                <h2>Join the Waitlist</h2>
-                <p class="signup-subtitle">Be first to access when we launch on your campus</p>
-
-                <form id="waitlistForm">
-                    <div class="form-container">
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-input" placeholder="Enter your .edu email"
-                                required>
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Hero section -->
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-content scroll-animate" id="heroContent">
+                        <!-- Coming Soon Badge -->
+                        <div class="badge">
+                            <i data-lucide="sparkles"></i>
+                            Coming Fall 2025
                         </div>
-                        <button type="submit" class="cta-button glow-effect" id="submitBtn">Get Early Access</button>
+
+                        <!-- Main heading -->
+                        <div class="hero-titles">
+                            <h1 class="main-title">🎓 Made for Students</h1>
+                            <h2 class="subtitle">Rent. Swap. Repeat.</h2>
+                            <p class="tagline">Your campus wardrobe, reimagined</p>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="description">
+                            Connect with students on your campus to rent and swap clothes seamlessly. 
+                            Look amazing without breaking the bank or filling your closet.
+                        </p>
+
+                        <!-- Waitlist form -->
+                        <div class="waitlist-container">
+                            <div class="glass-card card-3d" id="waitlist-card">
+                                <h3 class="card-title">Join the Waitlist</h3>
+                                <p class="card-description">Be first to access when we launch on your campus</p>
+                                
+                                <form class="form" id="waitlistForm">
+                                    <div class="input-wrapper">
+                                        <i data-lucide="mail" class="input-icon"></i>
+                                        <input 
+                                            type="email" 
+                                            class="input" 
+                                            placeholder="Enter your .edu email" 
+                                            id="email"
+                                            required
+                                        >
+                                    </div>
+                                    <button type="submit" class="button" id="submitBtn">
+                                        Get Early Access
+                                        <i data-lucide="arrow-right"></i>
+                                    </button>
+                                </form>
+                                
+                                <!-- Success Message -->
+                                <div id="successMessage" class="success-card" style="display: none;">
+                                    <div class="success-icon">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20,6 9,17 4,12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h3 class="card-title">You're on the list!</h3>
+                                    <p class="card-description">We'll notify you when we launch on your campus.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Waitlist count -->
+                        <div class="waitlist-count">
+                            <i data-lucide="users"></i>
+                            <span id="waitlistCount">Loading waitlist count...</span>
+                        </div>
                     </div>
-                </form>
-
-                <div class="success-message" id="successMessage">
-                    🎉 You're in! We'll notify you when Wearzy launches at your school.
                 </div>
-            </div>
+            </section>
 
-            <!-- Social Proof -->
-            <div class="social-proof scroll-animate">
-                <p id="waitlistCount">Join X students already on the waitlist</p>
-            </div>
-        </div>
-    </section>
+            <!-- Features section -->
+            <section class="features-section">
+                <div class="features-container">
+                    <div class="features-header scroll-animate" id="features-header">
+                        <h2 class="features-title">Why Students Love Us</h2>
+                        <p class="features-description">
+                            The smart way to expand your wardrobe while being sustainable and budget-friendly
+                        </p>
+                    </div>
 
-    <!-- FOOTER -->
-    <footer class="scroll-animate">
-        <div class="container">
-            <p>&copy; 2025 Wearzy. All rights reserved.</p>
+                    <div class="features-grid">
+                        <div class="feature-card card-3d scroll-animate floating-element" id="feature-1">
+                            <div class="feature-icon">
+                                <i data-lucide="zap" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <h3 class="feature-title">Instant Access</h3>
+                            <p class="feature-text">
+                                Browse and rent clothes from students near you in seconds. Quick, easy, and hassle-free.
+                            </p>
+                        </div>
+
+                        <div class="feature-card card-3d scroll-animate floating-element" id="feature-2">
+                            <div class="feature-icon">
+                                <i data-lucide="heart" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <h3 class="feature-title">Sustainable</h3>
+                            <p class="feature-text">
+                                Reduce waste by sharing clothes within your campus community. Be eco-friendly and stylish.
+                            </p>
+                        </div>
+
+                        <div class="feature-card card-3d scroll-animate floating-element" id="feature-3">
+                            <div class="feature-icon">
+                                <i data-lucide="users" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <h3 class="feature-title">Campus Community</h3>
+                            <p class="feature-text">
+                                Connect with fellow students and build lasting friendships. Expand your social circle too.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p class="footer-text">
+                        © 2024 Campus Closet. Made with ❤️ for students, by students.
+                    </p>
+                </div>
+            </footer>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
-
 </html>
